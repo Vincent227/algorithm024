@@ -2,7 +2,7 @@
 
 ## 一、ArrayList学习总结
 
-#### 1. ArrayList大小和容量
+### 1. ArrayList大小和容量
 
 如果使用无参构造函数创建ArrayList，大小size和初始容量都是0；
 
@@ -27,12 +27,12 @@ if (newCapacity - minCapacity < 0)
 
 ### 3. ArrayList删除
 
-##### 3.1、为什么普通for循环无法删除干净（漏掉要删除的数据）？
+#### 3.1、为什么普通for循环无法删除干净（漏掉要删除的数据）？
 
 普通for循环调用ArrayList的remove删除数据后，后面的数据会自动向前移。比如一个1，2，3，3，4的ArrayList，我们使用普通for循环，在删除下标为2的元素3后，
 原本下标为3、4的元素会前移一位，下次循环时我们再遍历下标3时，这时候下标3对应的元素已经是4了，相当于漏掉了一个要删除的元素。
 
-##### 3.2、为什么增强for循环删除数据会报错？
+#### 3.2、为什么增强for循环删除数据会报错？
 
 因为增强 for 循环过程其实调用的就是迭代器的 next() 方法，当你调用 ArrayList的remove 方法进行删除时，modCount 的值会 +1，而这时候迭代器中的
 expectedModCount 的值却没有变，导致在迭代器下次执行 next() 方法时，首先调用checkForComodification()判断时，会由于expectedModCount != modCount 
